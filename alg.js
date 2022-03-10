@@ -1,5 +1,5 @@
 function computerPlay() {
-    let choice = Math.floor(Math.random() * 3)
+    let choice = Math.floor(Math.random() * 3);
     switch (choice) {
         case 0:
             console.log("Comp chose rock");
@@ -14,8 +14,18 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection == "Rock" && computerSelection == "Paper") {
-        console.log("Player wins")
-        return "You won!";
+    if (playerSelection == "Paper" && computerSelection == "Rock" || playerSelection == "Rock" && computerSelection == "Scissors" || 
+        playerSelection == "Scissors" && computerSelection == "Paper") {
+            console.log("Player wins")
+            return "You won!";
+        }
+    else if (playerSelection == "Rock" && computerSelection == "Paper" || playerSelection == "Scissors" && computerSelection == "Rock" || 
+            playerSelection == "Paper" && computerSelection == "Scissors") {
+                console.log("Computer wins");
+                return "You lost.";
+            }
+    else {
+        console.log("tie");
+        return "Tie";
     }
 }
