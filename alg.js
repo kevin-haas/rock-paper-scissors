@@ -40,6 +40,13 @@ function game() {
     let playerWins = 0;
     let computerWins = 0;
     for (let i = 0; i < 5; i++) {
-        playRound();
+        if (playRound() == "You won!"){
+            playerWins += 1;
+        }
+        else {
+            computerWins += 1;
+        }
     }
+    console.log(playerWins + ' player wins and ' + computerWins + ' computer wins.');
+    return ('Final score is you: ' + playerWins + ' computer: ' + computerWins);
 }
