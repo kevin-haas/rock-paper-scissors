@@ -14,13 +14,13 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection == "Paper" && computerSelection == "Rock" || playerSelection == "Rock" && computerSelection == "Scissors" || 
-        playerSelection == "Scissors" && computerSelection == "Paper") {
+    if (playerSelection.toLowerCase() == "paper" && computerSelection == "Rock" || playerSelection.toLowerCase() == "rock" && computerSelection == "Scissors" || 
+        playerSelection.toLowerCase() == "scissors" && computerSelection == "Paper") {
             console.log("Player wins")
             return "You won!";
         }
-    else if (playerSelection == "Rock" && computerSelection == "Paper" || playerSelection == "Scissors" && computerSelection == "Rock" || 
-            playerSelection == "Paper" && computerSelection == "Scissors") {
+    else if (playerSelection.toLowerCase() == "rock" && computerSelection == "Paper" || playerSelection.toLowerCase() == "scissors" && computerSelection == "Rock" || 
+            playerSelection.toLowerCase() == "paper" && computerSelection == "Scissors") {
                 console.log("Computer wins");
                 return "You lost.";
             }
