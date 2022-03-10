@@ -13,7 +13,9 @@ function computerPlay() {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
+function playRound() {
+    let playerSelection = prompt("What do you choose?");
+    let computerSelection = computerPlay();
     if (playerSelection.toLowerCase() == "paper" && computerSelection == "Rock" || playerSelection.toLowerCase() == "rock" && computerSelection == "Scissors" || 
         playerSelection.toLowerCase() == "scissors" && computerSelection == "Paper") {
             console.log("Player wins")
@@ -24,6 +26,10 @@ function playRound(playerSelection, computerSelection) {
                 console.log("Computer wins");
                 return "You lost.";
             }
+    else if (playerSelection.toLowerCase() != 'paper' && playerSelection.toLowerCase() != 'rock' && playerSelection.toLowerCase() != 'scissors') {
+        console.log("invalid");
+        playRound();
+        }
     else {
         console.log("tie");
         return "Tie";
@@ -34,7 +40,6 @@ function game() {
     let playerWins = 0;
     let computerWins = 0;
     for (let i = 0; i < 5; i++) {
-        let playerChoice = prompt("What do you choose?");
-        playRound(playerChoice, computerPlay());
+        playRound();
     }
 }
