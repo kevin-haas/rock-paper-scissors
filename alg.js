@@ -29,3 +29,12 @@ function playRound(playerSelection, computerSelection) {
         return "Tie";
     }
 }
+
+function game() {
+    let playerWins = 0;
+    let computerWins = 0;
+    for (let i = 0; i < 5; i++) {
+        let playerChoice = prompt("What do you choose?");
+        playRound(playerChoice, computerPlay());
+    }
+}
