@@ -13,8 +13,7 @@ function computerPlay() {
     }
 }
 
-function playRound() {
-    let playerSelection = prompt("What do you choose?");
+function playRound(playerSelection) {
     let computerSelection = computerPlay();
     if (playerSelection.toLowerCase() == "paper" && computerSelection == "Rock" || playerSelection.toLowerCase() == "rock" && computerSelection == "Scissors" || 
         playerSelection.toLowerCase() == "scissors" && computerSelection == "Paper") {
@@ -31,7 +30,7 @@ function playRound() {
         playRound();
         }
     else {
-        console.log("tie");
+        console.log("Tie");
         return "Tie";
     }
 }
@@ -50,3 +49,10 @@ function game() {
     console.log(playerWins + ' player wins and ' + computerWins + ' computer wins.');
     return ('Final score is you: ' + playerWins + ' computer: ' + computerWins);
 }
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playRound(button.id);
+    });
+});
