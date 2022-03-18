@@ -17,37 +17,31 @@ function playRound(playerSelection) {
     let computerSelection = computerPlay();
     if (playerSelection.toLowerCase() == "paper" && computerSelection == "Rock" || playerSelection.toLowerCase() == "rock" && computerSelection == "Scissors" || 
         playerSelection.toLowerCase() == "scissors" && computerSelection == "Paper") {
-            console.log("Player wins")
-            return "You won!";
+            playerWins(true);
         }
     else if (playerSelection.toLowerCase() == "rock" && computerSelection == "Paper" || playerSelection.toLowerCase() == "scissors" && computerSelection == "Rock" || 
             playerSelection.toLowerCase() == "paper" && computerSelection == "Scissors") {
-                console.log("Computer wins");
-                return "You lost.";
+                playerWins(false);
             }
     else if (playerSelection.toLowerCase() != 'paper' && playerSelection.toLowerCase() != 'rock' && playerSelection.toLowerCase() != 'scissors') {
         console.log("invalid");
-        playRound();
         }
     else {
-        console.log("Tie");
-        return "Tie";
+        console.log("tie");
     }
 }
 
-function game() {
-    let playerWins = 0;
-    let computerWins = 0;
-    for (let i = 0; i < 5; i++) {
-        if (playRound() == "You won!"){
-            playerWins += 1;
-        }
-        else {
-            computerWins += 1;
-        }
+function playerWins(bool) {
+    if (bool) {
+        const playerScore = document.querySelector('#playerScore');
+        const newScore = +playerScore.textContent + 1;
+        playerScore.textContent = newScore;
     }
-    console.log(playerWins + ' player wins and ' + computerWins + ' computer wins.');
-    return ('Final score is you: ' + playerWins + ' computer: ' + computerWins);
+    else {
+        const compScore = document.querySelector('#compScore');
+        const newScore = +compScore.textContent + 1;
+        compScore.textContent = newScore;
+    }
 }
 
 const buttons = document.querySelectorAll('button');
