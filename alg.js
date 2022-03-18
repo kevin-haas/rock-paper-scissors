@@ -36,11 +36,17 @@ function playerWins(bool) {
         const playerScore = document.querySelector('#playerScore');
         const newScore = +playerScore.textContent + 1;
         playerScore.textContent = newScore;
+        if (newScore == 5) {
+            alert('You Win!');
+        }
     }
     else {
         const compScore = document.querySelector('#compScore');
         const newScore = +compScore.textContent + 1;
         compScore.textContent = newScore;
+        if (newScore == 5) {
+            alert('Computer wins.');
+        }
     }
 }
 
