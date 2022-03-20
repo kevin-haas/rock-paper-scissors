@@ -38,6 +38,7 @@ function playerWins(bool) {
         playerScore.textContent = newScore;
         roundStatus.textContent = 'Round Won';
         if (newScore == 5) {
+            pauseInput();
             setTimeout(() => {roundStatus.textContent = 'YOU WON!';}, 1000);
             setTimeout(reset, 4000);
         }
@@ -47,6 +48,7 @@ function playerWins(bool) {
         compScore.textContent = newScore;
         roundStatus.textContent = 'Round Lost'
         if (newScore == 5) {
+            pauseInput();
             setTimeout(() => {roundStatus.textContent = 'You Lost.';}, 1000);
             setTimeout(reset, 4000);
         }
@@ -57,6 +59,13 @@ function reset() {
     playerScore.textContent = '0';
     compScore.textContent = '0';
     roundStatus.textContent = '';
+}
+
+function pauseInput() {
+    buttons.forEach((button) => {
+        button.disabled = true;
+        setTimeout(() => {button.disabled = false;}, 4000);
+    })
 }
 
 const playerScore = document.querySelector('#playerScore');
