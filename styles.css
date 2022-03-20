@@ -39,8 +39,14 @@ button {
 button:hover {
     background-color: white;
     color:#565656;
-    transition-duration: 500ms;
+    transition-duration: 350ms;
 }
+
+button:active {
+    box-shadow: 0 5px #565656;
+    transform: translateY(4px);
+    transition-duration: 0ms;
+  }
 
 a {
     color: #565656;
