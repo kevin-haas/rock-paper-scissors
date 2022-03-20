@@ -27,28 +27,40 @@ function playRound(playerSelection) {
         console.log("invalid");
         }
     else {
+        roundStatus.textContent = 'Tie'
         console.log("tie");
     }
 }
 
 function playerWins(bool) {
     if (bool) {
-        const playerScore = document.querySelector('#playerScore');
         const newScore = +playerScore.textContent + 1;
         playerScore.textContent = newScore;
+        roundStatus.textContent = 'Round Won';
         if (newScore == 5) {
-            alert('You Win!');
+            setTimeout(() => {roundStatus.textContent = 'YOU WON!';}, 1000);
+            setTimeout(reset, 4000);
         }
     }
     else {
-        const compScore = document.querySelector('#compScore');
         const newScore = +compScore.textContent + 1;
         compScore.textContent = newScore;
+        roundStatus.textContent = 'Round Lost'
         if (newScore == 5) {
-            alert('Computer wins.');
+            setTimeout(() => {roundStatus.textContent = 'You Lost.';}, 1000);
+            setTimeout(reset, 4000);
         }
     }
 }
+
+function reset() {
+    playerScore.textContent = '0';
+    compScore.textContent = '0';
+    roundStatus.textContent = '';
+}
+
+const playerScore = document.querySelector('#playerScore');
+const compScore = document.querySelector('#compScore');
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
@@ -56,3 +68,5 @@ buttons.forEach((button) => {
         playRound(button.id);
     });
 });
+
+const roundStatus = document.querySelector('.round-status');
