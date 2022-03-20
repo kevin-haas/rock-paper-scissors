@@ -28,6 +28,8 @@ function playRound(playerSelection) {
         }
     else {
         roundStatus.textContent = 'Tie'
+        pauseInput(1000);
+        setTimeout(() => {roundStatus.textContent = '';}, 1000);
         console.log("tie");
     }
 }
@@ -37,8 +39,10 @@ function playerWins(bool) {
         const newScore = +playerScore.textContent + 1;
         playerScore.textContent = newScore;
         roundStatus.textContent = 'Round Won';
+        pauseInput(1000);
+        setTimeout(() => {roundStatus.textContent = '';}, 1000);
         if (newScore == 5) {
-            pauseInput();
+            pauseInput(4000);
             setTimeout(() => {roundStatus.textContent = 'YOU WON!';}, 1000);
             setTimeout(reset, 4000);
         }
@@ -47,8 +51,10 @@ function playerWins(bool) {
         const newScore = +compScore.textContent + 1;
         compScore.textContent = newScore;
         roundStatus.textContent = 'Round Lost'
+        pauseInput(1000);
+        setTimeout(() => {roundStatus.textContent = '';}, 1000);
         if (newScore == 5) {
-            pauseInput();
+            pauseInput(4000);
             setTimeout(() => {roundStatus.textContent = 'You Lost.';}, 1000);
             setTimeout(reset, 4000);
         }
@@ -61,10 +67,10 @@ function reset() {
     roundStatus.textContent = '';
 }
 
-function pauseInput() {
+function pauseInput(length) {
     buttons.forEach((button) => {
         button.disabled = true;
-        setTimeout(() => {button.disabled = false;}, 4000);
+        setTimeout(() => {button.disabled = false;}, length);
     })
 }
 
