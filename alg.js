@@ -41,11 +41,13 @@ function playerWins(bool) {
         roundStatus.textContent = 'Round Won';
         pauseInput(1000);
         setTimeout(() => {roundStatus.textContent = '';}, 1000);
-        if (newScore == 5) {
-            pauseInput(4000);
-            setTimeout(() => {roundStatus.textContent = 'YOU WON!';}, 1000);
-            setTimeout(reset, 4000);
-        }
+        setTimeout(() => {
+            if (newScore == 5) {
+                pauseInput(3000);
+                roundStatus.textContent = 'YOU WON!';
+                setTimeout(reset, 3000);
+            }
+        }, 1000);
     }
     else {
         const newScore = +compScore.textContent + 1;
@@ -53,11 +55,13 @@ function playerWins(bool) {
         roundStatus.textContent = 'Round Lost'
         pauseInput(1000);
         setTimeout(() => {roundStatus.textContent = '';}, 1000);
-        if (newScore == 5) {
-            pauseInput(4000);
-            setTimeout(() => {roundStatus.textContent = 'You Lost.';}, 1000);
-            setTimeout(reset, 4000);
-        }
+        setTimeout(() => {
+            if (newScore == 5) {
+                pauseInput(3000);
+                roundStatus.textContent = 'You Lost.';
+                setTimeout(reset, 3000);
+            }
+        }, 1000);
     }
 }
 
