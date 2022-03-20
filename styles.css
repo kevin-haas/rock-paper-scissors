@@ -51,3 +51,8 @@ button:active {
 a {
     color: #565656;
 }
+
+.round-status {
+    color: #565656;
+    font-size: 40px;
+}
